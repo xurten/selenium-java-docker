@@ -17,7 +17,7 @@ public class FindFlightPage {
     @FindBy(name="buyFlights")
     private WebElement secondSubmitBtn;
 
-    public FindFlightPage() {
+    public FindFlightPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 30);
         PageFactory.initElements(driver, this);
@@ -29,7 +29,7 @@ public class FindFlightPage {
         this.firstSubmitBtn.click();
     }
 
-    public void goToOrderConfirmationPage()
+    public void goToFlightConfirmationPage()
     {
         this.wait.until(ExpectedConditions.elementToBeClickable(this.secondSubmitBtn));
         this.secondSubmitBtn.click();

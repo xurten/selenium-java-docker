@@ -22,7 +22,7 @@ public class FlightConfirmationPage {
     @FindBy(linkText = "SIGN-OFF")
     private WebElement signOffLink;
 
-    public FlightConfirmationPage()
+    public FlightConfirmationPage(WebDriver driver)
     {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, 30);
