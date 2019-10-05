@@ -13,6 +13,7 @@ public class BookFlightTest {
     @BeforeTest
     public void setupDriver()
     {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chromedriver.exe");
         this.driver = new ChromeDriver();
     }
 

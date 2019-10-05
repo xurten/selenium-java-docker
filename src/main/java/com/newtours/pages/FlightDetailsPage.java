@@ -29,7 +29,7 @@ public class FlightDetailsPage {
     {
         this.wait.until(ExpectedConditions.elementToBeClickable(passengers));
         Select select = new Select(passengers);
-        select.deselectByValue(noOfPassengers);
+        select.selectByValue(noOfPassengers);
     }
 
     public void goToFindFlightsPage()

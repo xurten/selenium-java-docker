@@ -11,9 +11,6 @@ public class RegistrationConfirmationPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    @FindBy(partialLinkText = "sign-in")
-    private WebElement signinLink;
-
     @FindBy(linkText = "Flights")
     private WebElement flightsLink;
 
@@ -26,7 +23,7 @@ public class RegistrationConfirmationPage {
 
     public void goToFlightDetailsPage()
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.signinLink));
-        this.signinLink.click();
+        this.wait.until(ExpectedConditions.visibilityOf(this.flightsLink));
+        this.flightsLink.click();
     }
 }
