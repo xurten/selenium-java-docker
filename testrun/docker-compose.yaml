@@ -12,6 +12,7 @@ services:
                         - HUB_HOST=hub
         firefox:
                 image: selenium/node-firefox:latest
+                shm_size: '1gb'
                 depends_on:
                         - hub
                 environment:
@@ -22,7 +23,7 @@ services:
                         - chrome
                         - firefox
                 environment:
-                        - BROWSER=chrome
+                        - BROWSER=firefox
                         - HUB_HOST=hub
                         - MODULE=search-module.xml
                 volumes:
