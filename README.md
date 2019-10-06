@@ -5,9 +5,9 @@
     - building repostiory
     - building docker image
     - sending new image to dockerhub
+- Tests can be executed by runner https://github.com/xurten/seleniumdocker-runner
 
-
-Logs for jenkins:
+Logs from jenkins:
 
 
 
