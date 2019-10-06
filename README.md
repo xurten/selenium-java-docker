@@ -1,4 +1,4 @@
-# Seleniumdocker project
+# Selenium - docker project
 - I create an automation framework in Java using testNG
 - Tests can be run via selenium grid or zalenium
 - Jenkins file was created for:
