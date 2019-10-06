@@ -1,0 +1,29 @@
+version: "3"
+services:
+        hub:
+                image: selenium/hub:latest
+                ports:
+                        - "4444:4444"
+        chrome:
+                image: selenium/node-chrome:latest
+                depends_on:
+                        - hub
+                environment:
+                        - HUB_HOST=hub
+        firefox:
+                image: selenium/node-firefox:latest
+                depends_on:
+                        - hub
+                environment:
+                        - HUB_HOST=hub
+        search-module:
+                image: xurten/selenium-docker
+                depends_on:
+                        - chrome
+                        - firefox
+                environment:
+                        - BROWSER=chrome
+                        - HUB_HOST=hub
+                        - MODULE=search-module.xml
+                volumes:
+                        - ./search-results:/usr/share/udemy/test-output

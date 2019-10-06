@@ -72,3 +72,4 @@ fabric.properties
 *.iml
 target
 testrun/search-results/*
+output/*
