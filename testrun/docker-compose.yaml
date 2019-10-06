@@ -17,7 +17,7 @@ services:
                         - hub
                 environment:
                         - HUB_HOST=hub
-        search-module:
+        search-module1:
                 image: xurten/selenium-docker
                 depends_on:
                         - chrome
@@ -27,8 +27,30 @@ services:
                         - HUB_HOST=hub
                         - MODULE=search-module.xml
                 volumes:
-                        - ./search-results:/usr/share/udemy/test-output
-        book-flight-module:
+                        - ./search-results-chrome-1:/usr/share/udemy/test-output
+        search-module2:
+                image: xurten/selenium-docker
+                depends_on:
+                        - chrome
+                        - firefox
+                environment:
+                        - BROWSER=firefox
+                        - HUB_HOST=hub
+                        - MODULE=search-module.xml
+                volumes:
+                        - ./search-results-firefox-2:/usr/share/udemy/test-output                
+        book-flight-module1:
+                image: xurten/selenium-docker
+                depends_on:
+                        - chrome
+                        - firefox
+                environment:
+                        - BROWSER=chrome
+                        - HUB_HOST=hub
+                        - MODULE=book-flight-module.xml
+                volumes:
+                        - ./book-result-chrome-1:/usr/share/udemy/test-output
+        book-flight-module2:
                 image: xurten/selenium-docker
                 depends_on:
                         - chrome
@@ -38,4 +60,4 @@ services:
                         - HUB_HOST=hub
                         - MODULE=book-flight-module.xml
                 volumes:
-                        - ./book-result:/usr/share/udemy/test-output
+                        - ./book-result-firefox-2:/usr/share/udemy/test-output                

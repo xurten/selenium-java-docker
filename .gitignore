@@ -71,6 +71,6 @@ fabric.properties
 .idea
 *.iml
 target
-testrun/search-results/*
+testrun/search-results*
 output/*
-testrun/book-result/*
+testrun/book-result*
