@@ -74,3 +74,4 @@ target
 testrun/search-results*
 output/*
 testrun/book-result*
+testrun/book-flight*
