@@ -10,11 +10,11 @@ import java.util.UUID;
 public class MyLogger implements IMyLogger{
     private IRepository databaseRepository;
 
-    public MyLogger()
+    public MyLogger(IRepository repository)
     {
-        databaseRepository = new MySqlRepository();
+        databaseRepository = repository;
+        databaseRepository.prepereDatabase();
     }
-
 
     @Override
     public void logSuccess(String message) {
@@ -22,7 +22,7 @@ public class MyLogger implements IMyLogger{
         int id = UUID.randomUUID().variant();
         String success = "SUCCESS";
         String currentDate = "2019-10-13 19:20:00";
-        databaseRepository.executeQuery(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
+        databaseRepository.executeUpdate(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate), MySqlRepository.DB_URL_WITH_DB);
     }
 
     @Override
@@ -32,6 +32,6 @@ public class MyLogger implements IMyLogger{
         int id = UUID.randomUUID().variant();
         String success = "FAILURE";
         String currentDate = "2019-10-13 19:20:00";
-        databaseRepository.executeQuery(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
+        databaseRepository.executeUpdate(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate), MySqlRepository.DB_URL_WITH_DB);
     }
 }
