@@ -3,7 +3,7 @@ package com.database;
 import com.model.Log;
 import java.sql.*;
 
-public class MySqlRepository implements IRepository<Log> {
+public class SqlRepository implements IRepository<Log> {
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost";
     static final String DB_URL_WITH_DB ="jdbc:mysql://localhost/logs";

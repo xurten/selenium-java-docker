@@ -1,5 +1,8 @@
 package com.newtours.tests;
 
+import com.database.MongoRepository;
+import com.logging.IMyLogger;
+import com.logging.MyLogger;
 import com.newtours.pages.*;
 import com.tests.BaseTest;
 import org.testng.Assert;
@@ -10,6 +13,7 @@ import org.testng.annotations.Test;
 public class BookFlightTest extends BaseTest {
     private String noOfPassengers;
     private String expectedPrice;
+    private IMyLogger logger;
 
     @BeforeTest
     @Parameters({"noOfPassengers","expectedPrice"})
@@ -17,6 +21,7 @@ public class BookFlightTest extends BaseTest {
     {
         this.noOfPassengers = noOfPassengers;
         this.expectedPrice = expectedPrice;
+        logger = new MyLogger(new MongoRepository());
     }
 
     @Test
@@ -58,5 +63,6 @@ public class BookFlightTest extends BaseTest {
         FlightConfirmationPage flightConfirmationPage = new FlightConfirmationPage(driver);
         String actualPrice = flightConfirmationPage.getPrice();
         Assert.assertEquals(actualPrice, expectedPrice);
+        logger.logSuccess("BookFlightTest test passed");
     }
 }

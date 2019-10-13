@@ -1,6 +1,6 @@
 package com.searchmodule.tests;
 
-import com.database.MySqlRepository;
+import com.database.SqlRepository;
 import com.logging.IMyLogger;
 import com.logging.MyLogger;
 import com.searchmodule.pages.SearchPage;
@@ -16,7 +16,7 @@ public class SearchTest extends BaseTest {
     @BeforeTest
     public void setupParameters()
     {
-        logger = new MyLogger(new MySqlRepository());
+        logger = new MyLogger(new SqlRepository());
     }
 
     @Test
