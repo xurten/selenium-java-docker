@@ -13,7 +13,6 @@ public class MySqlRepository implements IRepository {
     public void prepereDatabase() {
         executeUpdateWithoutDb("CREATE DATABASE logs;");
         executeUpdate("CREATE TABLE logs (id int, message VARCHAR(200), testName VARCHAR(50), currentDate datetime);", DB_URL_WITH_DB);
-        executeUpdate("insert into logs(id, message, testName, currentDate) values (1, 'click', 'firstTest', '2019-10-13 19:20:00');", DB_URL_WITH_DB);
     }
 
     @Override

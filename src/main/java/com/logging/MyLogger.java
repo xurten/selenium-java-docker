@@ -2,9 +2,12 @@ package com.logging;
 
 import com.database.IRepository;
 import com.database.MySqlRepository;
+import com.utils.DateUtils;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class MyLogger implements IMyLogger{
@@ -21,7 +24,7 @@ public class MyLogger implements IMyLogger{
         Reporter.log(message, ITestResult.SUCCESS);
         int id = UUID.randomUUID().variant();
         String success = "SUCCESS";
-        String currentDate = "2019-10-13 19:20:00";
+        String currentDate = DateUtils.GetActualDate();
         databaseRepository.executeUpdateWithDb(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
     }
 
