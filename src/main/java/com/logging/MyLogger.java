@@ -22,7 +22,7 @@ public class MyLogger implements IMyLogger{
         int id = UUID.randomUUID().variant();
         String success = "SUCCESS";
         String currentDate = "2019-10-13 19:20:00";
-        databaseRepository.executeUpdate(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate), MySqlRepository.DB_URL_WITH_DB);
+        databaseRepository.executeUpdateWithDb(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
     }
 
     @Override
@@ -32,6 +32,6 @@ public class MyLogger implements IMyLogger{
         int id = UUID.randomUUID().variant();
         String success = "FAILURE";
         String currentDate = "2019-10-13 19:20:00";
-        databaseRepository.executeUpdate(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate), MySqlRepository.DB_URL_WITH_DB);
+        databaseRepository.executeUpdateWithDb(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
     }
 }
