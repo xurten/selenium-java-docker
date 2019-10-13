@@ -1,13 +1,10 @@
 package com.logging;
 
 import com.database.IRepository;
-import com.database.MySqlRepository;
 import com.utils.DateUtils;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.UUID;
 
 public class MyLogger implements IMyLogger{
@@ -22,10 +19,9 @@ public class MyLogger implements IMyLogger{
     @Override
     public void logSuccess(String message) {
         Reporter.log(message, ITestResult.SUCCESS);
-        int id = UUID.randomUUID().variant();
         String success = "SUCCESS";
         String currentDate = DateUtils.GetActualDate();
-        databaseRepository.executeUpdateWithDb(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
+        databaseRepository.executeUpdateWithDb(String.format("insert into logs(message, testName, currentDate) values ('%s', '%s', '%s');", message, success, currentDate));
     }
 
     @Override
@@ -35,6 +31,6 @@ public class MyLogger implements IMyLogger{
         int id = UUID.randomUUID().variant();
         String success = "FAILURE";
         String currentDate = "2019-10-13 19:20:00";
-        databaseRepository.executeUpdateWithDb(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
+        databaseRepository.executeUpdateWithDb(String.format("insert into logs(message, testName, currentDate) values ('%s', '%s', '%s');",  message, success, currentDate));
     }
 }
