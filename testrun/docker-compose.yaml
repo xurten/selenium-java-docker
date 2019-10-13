@@ -17,6 +17,24 @@ services:
                         - hub
                 environment:
                         - HUB_HOST=hub
+        mysql:
+                image : mysql:latest
+                restart: always
+                environment:
+                        MYSQL_DATABASE: 'log'
+                        MYSQL_USER: 'xurten'
+                        MYSQL_PASSWORD: 'root'
+                        MYSQL_ROOT_PASSWORD: 'root'
+                ports:
+                        - '3306:3306'
+                volumes:
+                        - my-db:/var/lib/mysql
+                depends_on:
+                        - hub
+        mongo:
+                image : mongo:4.0.4
+                ports:
+                        - "27017-27019:27017-27019"
         search-module1:
                 image: xurten/selenium-docker
                 depends_on:
