@@ -3,3 +3,13 @@ docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root mysql
 // clear all containers
 docker stop $(docker ps -a -q)
 docker rm $(docker ps -a -q)
+// get mongo
+docker pull mongo:4.0.4
+// run mongo
+docker run -d -p 27017-27019:27017-27019 --name mongodb mongo:4.0.4
+//connect to mongo
+docker exec -it mongodb bash
+    // in mongo client
+    show dbs
+    use logs
+    db.logs.save({ id: "1", message: "click","testResult": "SUCESS", "currentDate": "2019-10-13 19:20:00" })
