@@ -1,17 +1,37 @@
 package com.logging;
 
+import com.database.IRepository;
+import com.database.MySqlRepository;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 
+import java.util.UUID;
+
 public class MyLogger implements IMyLogger{
+    private IRepository databaseRepository;
+
+    public MyLogger()
+    {
+        databaseRepository = new MySqlRepository();
+    }
+
 
     @Override
     public void logSuccess(String message) {
         Reporter.log(message, ITestResult.SUCCESS);
+        int id = UUID.randomUUID().variant();
+        String success = "SUCCESS";
+        String currentDate = "2019-10-13 19:20:00";
+        databaseRepository.executeQuery(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
     }
 
     @Override
     public void logFailure(String message) {
         Reporter.log(message, ITestResult.FAILURE);
+        Reporter.log(message, ITestResult.SUCCESS);
+        int id = UUID.randomUUID().variant();
+        String success = "FAILURE";
+        String currentDate = "2019-10-13 19:20:00";
+        databaseRepository.executeQuery(String.format("insert into logs(id, message, testName, currentDate) values (%d, '%s', '%s', '%s');", id, message, success, currentDate));
     }
 }

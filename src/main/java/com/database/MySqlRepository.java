@@ -10,7 +10,11 @@ public class MySqlRepository implements IRepository {
 
     @Override
     public void prepereDatabase() {
-
+        executeQuery("CREATE DATABASE logs;");
+        executeQuery("CREATE DATABASE logs;");
+        executeQuery("USE logs;");
+        executeQuery("CREATE TABLE logs (id int, message VARCHAR(200), testName VARCHAR(50), currentDate datetime);");
+        executeQuery("insert into logs(id, message, testName, currentDate) values (1, 'click', 'firstTest', '2019-10-13 19:20:00');");
     }
 
     @Override
