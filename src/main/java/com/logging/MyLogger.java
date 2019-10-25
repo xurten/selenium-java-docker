@@ -31,4 +31,9 @@ public class MyLogger implements IMyLogger{
         String currentDate = DateUtils.GetActualDate();
         databaseRepository.Add(new Log(message, success, currentDate));
     }
+
+    @Override
+    public void logInfo(String message) {
+        Reporter.log("Info message " + message);
+    }
 }
