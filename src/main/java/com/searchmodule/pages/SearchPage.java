@@ -53,8 +53,7 @@ public class SearchPage extends BasePage {
 
     public int getResult()
     {
-        By by = By.className("tile--vid");
-        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, 0));
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(By.xpath("//div[@class='tile__media']"), 0));
         logger.logInfo("Videos size = " + allVideos.size());
         return allVideos.size();
     }
