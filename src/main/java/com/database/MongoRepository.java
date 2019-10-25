@@ -25,19 +25,4 @@ public class MongoRepository implements IRepository<Log> {
                 .append("currentDate", entity.getCurrentDate());
         collection.insertOne(document);
     }
-
-    @Override
-    public void Delete(Log entity) {
-
-    }
-
-    @Override
-    public void Update(Log entity) {
-
-    }
-
-    @Override
-    public Log FindById(int Id) {
-        return null;
-    }
 }

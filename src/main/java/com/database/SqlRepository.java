@@ -23,21 +23,6 @@ public class SqlRepository implements IRepository<Log> {
         executeUpdateWithDb(String.format(INSERT_INTO_LOGS, entity.getMessage(), entity.getSuccess(), entity.getCurrentDate()));
     }
 
-    @Override
-    public void Delete(Log entity) {
-
-    }
-
-    @Override
-    public void Update(Log entity) {
-
-    }
-
-    @Override
-    public Log FindById(int Id) {
-        return null;
-    }
-
     public void executeUpdateWithoutDb(String query) {
         executeUpdate(query, DB_URL);
     }
