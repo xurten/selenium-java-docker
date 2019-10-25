@@ -33,7 +33,7 @@ public class RegistrationPage extends BasePage {
         PageFactory.initElements(driver,this);
     }
 
-    public void goTo()
+    public void goToRegistrationPage()
     {
         driver.get("http://newtours.demoaut.com/mercuryregister.php");
         wait.until(ExpectedConditions.visibilityOf(firstNameTxt));
