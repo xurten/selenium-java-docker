@@ -13,6 +13,7 @@
         <mongoVersion>3.4.1</mongoVersion>
         <seleniumVersion>3.14.0</seleniumVersion>
         <jodaTimeVersion>2.10.4</jodaTimeVersion>
+        <webdriverManagerVersion>3.7.1</webdriverManagerVersion>
     </properties>
 
     <dependencies>
@@ -20,12 +21,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${seleniumVersion}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>${testngVersion}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.testng</groupId>
@@ -42,6 +37,12 @@
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>${jodaTimeVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriverManagerVersion}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>
