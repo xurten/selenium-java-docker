@@ -29,11 +29,11 @@ public class FlightConfirmationPage extends BasePage {
 
     public String getPrice()
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.flightConfirmationHeader));
-        System.out.println(this.flightConfirmationHeader.getText());
-        String price = this.prices.get(1).getText();
+        wait.until(ExpectedConditions.visibilityOf(flightConfirmationHeader));
+        System.out.println(flightConfirmationHeader.getText());
+        String price = prices.get(1).getText();
         System.out.println(price);
-        this.signOffLink.click();
+        signOffLink.click();
         return price;
     }
 }

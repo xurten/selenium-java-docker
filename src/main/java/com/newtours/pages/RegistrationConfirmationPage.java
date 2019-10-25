@@ -19,7 +19,7 @@ public class RegistrationConfirmationPage extends BasePage {
 
     public void goToFlightDetailsPage()
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.flightsLink));
-        this.flightsLink.click();
+        wait.until(ExpectedConditions.visibilityOf(flightsLink));
+        flightsLink.click();
     }
 }

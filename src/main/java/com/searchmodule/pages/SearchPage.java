@@ -31,27 +31,27 @@ public class SearchPage extends BasePage {
 
     public void goTo()
     {
-        this.driver.get("https://duckduckgo.com");
+        driver.get("https://duckduckgo.com");
     }
 
     public void doSearch(String keyword)
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.searchTxt));
-        this.searchTxt.sendKeys(keyword);
-        this.searchBtn.click();
+        wait.until(ExpectedConditions.visibilityOf(searchTxt));
+        searchTxt.sendKeys(keyword);
+        searchBtn.click();
     }
 
     public void goToVideos()
     {
-        this.wait.until(ExpectedConditions.visibilityOf(this.videosLink));
-        this.videosLink.click();
+        wait.until(ExpectedConditions.visibilityOf(videosLink));
+        videosLink.click();
     }
 
     public int getResult()
     {
         By by = By.className("tile--vid");
-        this.wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, 0));
-        System.out.print(this.allVideos.size());
-        return this.allVideos.size();
+        wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, 0));
+        System.out.print(allVideos.size());
+        return allVideos.size();
     }
 }

@@ -23,13 +23,13 @@ public class FlightDetailsPage extends BasePage {
 
     public void selectPassengers(String noOfPassengers)
     {
-        this.wait.until(ExpectedConditions.elementToBeClickable(passengers));
+        wait.until(ExpectedConditions.elementToBeClickable(passengers));
         Select select = new Select(passengers);
         select.selectByValue(noOfPassengers);
     }
 
     public void goToFindFlightsPage()
     {
-        this.submitBtn.click();
+        submitBtn.click();
     }
 }

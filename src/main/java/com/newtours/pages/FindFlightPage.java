@@ -21,14 +21,14 @@ public class FindFlightPage extends BasePage {
 
     public void submitFindFlightPage()
     {
-        this.wait.until(ExpectedConditions.elementToBeClickable(this.firstSubmitBtn));
-        this.firstSubmitBtn.click();
+        wait.until(ExpectedConditions.elementToBeClickable(firstSubmitBtn));
+        firstSubmitBtn.click();
     }
 
     public void goToFlightConfirmationPage()
     {
-        this.wait.until(ExpectedConditions.elementToBeClickable(this.secondSubmitBtn));
-        this.secondSubmitBtn.click();
+        wait.until(ExpectedConditions.elementToBeClickable(secondSubmitBtn));
+        secondSubmitBtn.click();
     }
 }
 

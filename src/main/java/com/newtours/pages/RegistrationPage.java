@@ -35,25 +35,25 @@ public class RegistrationPage extends BasePage {
 
     public void goTo()
     {
-        this.driver.get("http://newtours.demoaut.com/mercuryregister.php");
-        this.wait.until(ExpectedConditions.visibilityOf(this.firstNameTxt));
+        driver.get("http://newtours.demoaut.com/mercuryregister.php");
+        wait.until(ExpectedConditions.visibilityOf(firstNameTxt));
     }
 
     public void enterUserDetails(String firstName, String lastName)
     {
-        this.firstNameTxt.sendKeys(firstName);
-        this.lastNameTxt.sendKeys(lastName);
+        firstNameTxt.sendKeys(firstName);
+        lastNameTxt.sendKeys(lastName);
     }
 
     public void enterUserCredentials(String username, String password)
     {
-        this.userNameTxt.sendKeys(username);
-        this.passwordTxt.sendKeys(password);
-        this.confirmPasswordTxt.sendKeys(password);
+        userNameTxt.sendKeys(username);
+        passwordTxt.sendKeys(password);
+        confirmPasswordTxt.sendKeys(password);
     }
 
     public void submit()
     {
-        this.submitBtn.click();
+        submitBtn.click();
     }
 }
