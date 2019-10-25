@@ -1,7 +1,6 @@
 package com.tests;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.ITestContext;
@@ -17,24 +16,35 @@ public class BaseTest {
     @BeforeTest
     public void setupDriver(ITestContext ctx) throws MalformedURLException {
         String host ="localhost";
-        DesiredCapabilities dc;
 
-        if(System.getProperty("BROWSER")!= null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
-            dc = DesiredCapabilities.firefox();
-        }else
-        {
-            dc = DesiredCapabilities.chrome();
-        }
+        host = getHost(host);
+        String testName = ctx.getCurrentXmlTest().getName();
+        String completeUrl = getFormatedHostUrl(host);
+        DesiredCapabilities desiredCapabilities = getDesiredCapabilities(testName);
+        this.driver = new RemoteWebDriver(new URL(completeUrl), desiredCapabilities);
+    }
 
+    private String getFormatedHostUrl(String host) {
+        return "http://" + host + ":4444/wd/hub";
+    }
+
+    private String getHost(String host) {
         if(System.getProperty("HUB_HOST")!= null){
             host = System.getProperty("HUB_HOST");
         }
+        return host;
+    }
 
-        String testName = ctx.getCurrentXmlTest().getName();
-
-        String completeUrl = "http://" + host + ":4444/wd/hub";
-        dc.setCapability("name", testName);
-        this.driver = new RemoteWebDriver(new URL(completeUrl), dc);
+    private DesiredCapabilities getDesiredCapabilities(String testName) {
+        DesiredCapabilities desiredCapabilities;
+        if(System.getProperty("BROWSER")!= null && System.getProperty("BROWSER").equalsIgnoreCase("firefox")){
+            desiredCapabilities = DesiredCapabilities.firefox();
+        }else
+        {
+            desiredCapabilities = DesiredCapabilities.chrome();
+        }
+        desiredCapabilities.setCapability("name", testName);
+        return desiredCapabilities;
     }
 
     @AfterTest
