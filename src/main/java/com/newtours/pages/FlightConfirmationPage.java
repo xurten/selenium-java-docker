@@ -27,9 +27,9 @@ public class FlightConfirmationPage extends BasePage {
     public String getPrice()
     {
         wait.until(ExpectedConditions.visibilityOf(flightConfirmationHeader));
-        System.out.println(flightConfirmationHeader.getText());
+        logger.logInfo("Price " + flightConfirmationHeader.getText());
         String price = prices.get(1).getText();
-        System.out.println(price);
+        logger.logInfo("Exact price " + price);
         signOffLink.click();
         return price;
     }
