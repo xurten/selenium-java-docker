@@ -12,6 +12,7 @@
         <testngVersion>6.14.3</testngVersion>
         <mongoVersion>3.4.1</mongoVersion>
         <seleniumVersion>3.14.0</seleniumVersion>
+        <jodaTimeVersion>2.10.4</jodaTimeVersion>
     </properties>
 
     <dependencies>
@@ -36,6 +37,11 @@
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>${mongoVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${jodaTimeVersion}</version>
         </dependency>
     </dependencies>
     <build>
