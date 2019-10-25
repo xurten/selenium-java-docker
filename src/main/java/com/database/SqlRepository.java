@@ -28,31 +28,13 @@ public class SqlRepository implements IRepository<Log> {
     }
 
     public void executeUpdate(String query, String url) {
-        Connection conn = null;
-        Statement stmt = null;
-        try{
+        try(Connection connection = DriverManager.getConnection(url, USER, PASS);Statement statement = connection.createStatement()){
             Class.forName(JDBC_DRIVER);
-            conn = DriverManager.getConnection(url, USER, PASS);
-            stmt = conn.createStatement();
-            int affectedRows = stmt.executeUpdate(query);
-            stmt.close();
-            conn.close();
+            int affectedRows = statement.executeUpdate(query);
         }catch(SQLException se){
             se.printStackTrace();
         }catch(Exception e){
             e.printStackTrace();
-        }finally{
-            try{
-                if(stmt!=null)
-                    stmt.close();
-            }catch(SQLException se2){
-            }
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }
         }
     }
 

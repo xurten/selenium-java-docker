@@ -7,6 +7,7 @@ import com.searchmodule.pages.SearchPage;
 import com.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -19,7 +20,12 @@ public class SearchTest extends BaseTest {
         logger = new MyLogger(new SqlRepository());
     }
 
-    @Test
+    @DataProvider(name = "searchTestProvider")
+    public Object[][] searchTestProvider() {
+        return new Object[][] { {"java"}, {"qa"}, {"school"}, {"world"}, {"sun"}};
+    }
+
+    @Test(dataProvider = "searchTestProvider")
     @Parameters({"keyword"})
     public void search(String keyword)
     {
