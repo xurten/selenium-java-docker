@@ -1,6 +1,9 @@
 package com.searchmodule.pages;
 
+import com.database.SqlRepository;
 import com.generic.pages.BasePage;
+import com.logging.IMyLogger;
+import com.logging.MyLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,11 +25,13 @@ public class SearchPage extends BasePage {
 
     @FindBy(className = "tile--vid")
     private List<WebElement> allVideos;
+    private IMyLogger logger;
 
     public SearchPage(WebDriver driver)
     {
         super(driver);
         PageFactory.initElements(driver, this);
+        logger = new MyLogger(new SqlRepository());
     }
 
     public void goTo()
@@ -51,7 +56,7 @@ public class SearchPage extends BasePage {
     {
         By by = By.className("tile--vid");
         wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, 0));
-        System.out.print(allVideos.size());
+        logger.logInfo("Videos size = " + allVideos.size());
         return allVideos.size();
     }
 }
