@@ -18,7 +18,6 @@ public class FlightDetailsPage extends BasePage {
     public FlightDetailsPage(WebDriver driver)
     {
         super(driver);
-        PageFactory.initElements(driver,this);
     }
 
     public void selectPassengers(String noOfPassengers)

@@ -30,7 +30,6 @@ public class RegistrationPage extends BasePage {
     public RegistrationPage(WebDriver driver)
     {
         super(driver);
-        PageFactory.initElements(driver,this);
     }
 
     public void goToRegistrationPage()

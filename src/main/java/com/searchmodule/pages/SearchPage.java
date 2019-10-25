@@ -30,7 +30,6 @@ public class SearchPage extends BasePage {
     public SearchPage(WebDriver driver)
     {
         super(driver);
-        PageFactory.initElements(driver, this);
         logger = new MyLogger(new SqlRepository());
     }
 

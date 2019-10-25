@@ -14,7 +14,6 @@ public class RegistrationConfirmationPage extends BasePage {
     public RegistrationConfirmationPage(WebDriver driver)
     {
         super(driver);
-        PageFactory.initElements(driver,this);
     }
 
     public void goToFlightDetailsPage()
