@@ -7,7 +7,7 @@ import com.newtours.pages.*;
 import com.tests.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class BookFlightTest extends BaseTest {
@@ -15,8 +15,13 @@ public class BookFlightTest extends BaseTest {
     private String expectedPrice;
     private IMyLogger logger;
 
+    @DataProvider(name = "bookFlightDataProvider")
+    public Object[][] bookFlightDataProvider() {
+        return new Object[][] { {"2", "$1169 USD"}, {"3","$1753 USD"}, {"4", "$2338 USD"} };
+    }
+
     @BeforeTest
-    @Parameters({"noOfPassengers","expectedPrice"})
+    @Test(dataProvider = "bookFlightDataProvider")
     public void setupParameters(String noOfPassengers, String expectedPrice)
     {
         this.noOfPassengers = noOfPassengers;
