@@ -75,3 +75,4 @@ testrun/search-results*
 output/*
 testrun/book-result*
 testrun/book-flight*
+testrun/mysql_data*
