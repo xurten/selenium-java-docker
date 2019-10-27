@@ -15,9 +15,10 @@ public class RegistrationConfirmationPage extends BasePage {
         super(driver);
     }
 
-    public void goToFlightDetailsPage()
+    public FlightDetailsPage goToFlightDetailsPage()
     {
         wait.until(ExpectedConditions.visibilityOf(flightsLink));
         flightsLink.click();
+        return new FlightDetailsPage(driver);
     }
 }
