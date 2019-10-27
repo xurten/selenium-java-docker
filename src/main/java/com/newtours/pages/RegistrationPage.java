@@ -30,27 +30,31 @@ public class RegistrationPage extends BasePage {
         super(driver);
     }
 
-    public void goToRegistrationPage()
+    public RegistrationPage goToRegistrationPage()
     {
         driver.get("http://newtours.demoaut.com/mercuryregister.php");
         wait.until(ExpectedConditions.visibilityOf(firstNameTxt));
+        return this;
     }
 
-    public void enterUserDetails(String firstName, String lastName)
+    public RegistrationPage enterUserDetails(String firstName, String lastName)
     {
         firstNameTxt.sendKeys(firstName);
         lastNameTxt.sendKeys(lastName);
+        return this;
     }
 
-    public void enterUserCredentials(String username, String password)
+    public RegistrationPage enterUserCredentials(String username, String password)
     {
         userNameTxt.sendKeys(username);
         passwordTxt.sendKeys(password);
         confirmPasswordTxt.sendKeys(password);
+        return this;
     }
 
-    public void submit()
+    public RegistrationConfirmationPage submitCredentials()
     {
         submitBtn.click();
+        return new RegistrationConfirmationPage(driver);
     }
 }

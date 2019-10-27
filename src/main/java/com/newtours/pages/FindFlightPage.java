@@ -17,16 +17,18 @@ public class FindFlightPage extends BasePage {
         super(driver);
     }
 
-    public void submitFindFlightPage()
+    public FindFlightPage submitFindFlightPage()
     {
         wait.until(ExpectedConditions.elementToBeClickable(firstSubmitBtn));
         firstSubmitBtn.click();
+        return this;
     }
 
-    public void goToFlightConfirmationPage()
+    public FlightConfirmationPage goToFlightConfirmationPage()
     {
         wait.until(ExpectedConditions.elementToBeClickable(secondSubmitBtn));
         secondSubmitBtn.click();
+        return new FlightConfirmationPage(driver);
     }
 }
 

@@ -19,15 +19,17 @@ public class FlightDetailsPage extends BasePage {
         super(driver);
     }
 
-    public void selectPassengers(String noOfPassengers)
+    public FlightDetailsPage selectPassengers(String noOfPassengers)
     {
         wait.until(ExpectedConditions.elementToBeClickable(passengers));
         Select select = new Select(passengers);
         select.selectByValue(noOfPassengers);
+        return this;
     }
 
-    public void goToFindFlightsPage()
+    public FindFlightPage goToFindFlightsPage()
     {
         submitBtn.click();
+        return new FindFlightPage(driver);
     }
 }
