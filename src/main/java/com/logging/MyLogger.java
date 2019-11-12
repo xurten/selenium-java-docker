@@ -20,16 +20,7 @@ public class MyLogger implements IMyLogger{
         Reporter.log(message, ITestResult.SUCCESS);
         String success = "SUCCESS";
         String currentDate = DateUtils.GetActualDate();
-        databaseRepository.Add(new Log(message, success, currentDate));
-    }
-
-    @Override
-    public void logFailure(String message) {
-        Reporter.log(message, ITestResult.FAILURE);
-        Reporter.log(message, ITestResult.SUCCESS);
-        String success = "FAILURE";
-        String currentDate = DateUtils.GetActualDate();
-        databaseRepository.Add(new Log(message, success, currentDate));
+        databaseRepository.add(new Log(message, success, currentDate));
     }
 
     @Override

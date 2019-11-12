@@ -30,7 +30,7 @@ public class SearchTest extends BaseTest {
     public void search(String keyword)
     {
         SearchPage searchPage = new SearchPage(driver);
-        searchPage.goTo();
+        searchPage.goToSearchPage();
         searchPage.doSearch(keyword);
         searchPage.goToVideos();
         int size = searchPage.getResult();
