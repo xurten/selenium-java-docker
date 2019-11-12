@@ -19,7 +19,7 @@ public class SqlRepository implements IRepository<Log> {
     }
 
     @Override
-    public void Add(Log entity) {
+    public void add(Log entity) {
         executeUpdateWithDb(String.format(INSERT_INTO_LOGS, entity.getMessage(), entity.getSuccess(), entity.getCurrentDate()));
     }
 

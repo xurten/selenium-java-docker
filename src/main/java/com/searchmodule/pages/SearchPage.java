@@ -1,9 +1,6 @@
 package com.searchmodule.pages;
 
-import com.database.SqlRepository;
 import com.generic.pages.BasePage;
-import com.logging.IMyLogger;
-import com.logging.MyLogger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +27,7 @@ public class SearchPage extends BasePage {
         super(driver);
     }
 
-    public void goTo()
+    public void goToSearchPage()
     {
         driver.get("https://duckduckgo.com");
     }

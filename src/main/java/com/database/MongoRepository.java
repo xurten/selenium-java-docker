@@ -17,7 +17,7 @@ public class MongoRepository implements IRepository<Log> {
     }
 
     @Override
-    public void Add(Log entity) {
+    public void add(Log entity) {
         MongoCollection collection = database.getCollection("logs");
         Document document = new Document("id", entity.getId())
                 .append("message", entity.getMessage())
