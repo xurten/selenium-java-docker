@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <testngVersion>6.14.3</testngVersion>
+        <testngVersion>7.5.1</testngVersion>
         <mongoVersion>3.4.1</mongoVersion>
         <seleniumVersion>3.14.0</seleniumVersion>
         <jodaTimeVersion>2.10.4</jodaTimeVersion>
